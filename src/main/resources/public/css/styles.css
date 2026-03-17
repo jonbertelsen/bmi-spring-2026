@@ -1,0 +1,37 @@
+/* Stylesheet for the application */
+
+h1 {
+    color: #369;
+    font-family: Merriweather, Arial, Helvetica, sans-serif;
+    font-size: 3rem;
+}
+
+body {
+    display: grid;
+    justify-content: center;
+}
+
+#bmi-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    gap: 10px;
+}
+
+#bmi-form input, #bmi-form button {
+    padding: 5px;
+}
+
+#content {
+    background-color: beige;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+
+
