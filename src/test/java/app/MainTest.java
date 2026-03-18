@@ -1,5 +1,6 @@
 package app;
 
+import app.services.BmiServices;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,7 +23,7 @@ class MainTest {
         double bmi = 22.0;
         String expectedBMI = "Normalvægtig";
         // Act
-        String actualBMI = Main.getBMIVerdict(bmi);
+        String actualBMI = BmiServices.getBMIVerdict(bmi);
         // Assert
         assertEquals(expectedBMI, actualBMI);
     }
@@ -33,13 +34,13 @@ class MainTest {
         double bmi = 18.0;
         String expectedBMI = "Undervægtig";
         // Act
-        String actualBMI = Main.getBMIVerdict(bmi);
+        String actualBMI = BmiServices.getBMIVerdict(bmi);
         // Assert
         assertEquals(expectedBMI, actualBMI);
     }
 
     @Test
     void getBMI() {
-        double bmi = Main.getBMI(72, 184);
+        double bmi = BmiServices.getBMI(72, 184);
     }
 }
