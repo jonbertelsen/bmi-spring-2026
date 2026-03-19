@@ -7,4 +7,5 @@ public class RequestValidation {
             throw new IllegalArgumentException("Navn skal have mindst to tegn");
         }
     }
+
 }

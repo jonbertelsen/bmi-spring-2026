@@ -33,5 +33,21 @@ body {
     border-radius: 5px;
 }
 
+.link-button {
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: darkgoldenrod;
+}
+
+.link-button:hover {
+    background-color: darksalmon;
+    color: white;
+}
+
+.link-button a {
+    text-decoration: none;
+}
+
 
 

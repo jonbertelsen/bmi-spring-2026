@@ -30,14 +30,11 @@ public class BmiController {
             String verdict = BmiServices.getBMIVerdict(bmi);
             LocalDateTime created = LocalDateTime.now();
 
-            // TODO: Gem data i Bmi entitet
+            Bmi bmiEntity = new Bmi(height, weight, bmi, name, verdict, created);
 
-            Bmi bmiEntity = new Bmi(weight, height, bmi, name, verdict, created);
             bmiMapper.createBmi(bmiEntity);
 
-            ctx.attribute("bmi", bmi);
-            ctx.attribute("name", name);
-            ctx.attribute("verdict", verdict);
+            ctx.attribute("bmiEntity", bmiEntity );
             ctx.attribute("error", "");
             ctx.render("result.html");
         } catch (NumberFormatException e) {
