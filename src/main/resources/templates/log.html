@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<title>Frontpage</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div id = "content">
+<h1>BMI Calculator</h1>
+<p>Her kan du se en log over indtastninger</p>
+
+    <p>Her skal vi indsætte en tabel med data fra postgres</p>
+
+    <table class="bmi-table">
+
+        <thead>
+        <tr>
+            <th>name</th>
+            <th>weight</th>
+            <th>height</th>
+            <th>bmi</th>
+            <th>verdict</th>
+            <th>created</th>
+        </tr>
+        </thead>
+
+        <tr th:each="bmi : ${bmiList}">
+            <td th:text="${bmi.name}"></td>
+            <td th:text="${bmi.weight}"></td>
+            <td th:text="${bmi.height}"></td>
+            <td th:text="${#numbers.formatDecimal(bmi.bmi,1, 2)}"></td>
+            <td th:text="${bmi.verdict}"></td>
+            <td th:text="${#temporals.format(bmi.created, 'dd-MM-yyyy HH:mm')}"></td>
+        </tr>
+
+    </table>
+
+    <a class="link-button" th:href="@{/}">Til forsiden</a>
+
+    <div class="error-message">
+        <p th:text="${error}"></p>
+    </div>
+
+</div>
+</body>
+</html>

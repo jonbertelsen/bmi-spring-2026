@@ -18,6 +18,7 @@ public class Routes {
         return () -> {
             get("/", ctx -> ctx.render("index.html"));
             post("/result", ctx -> bmiController.renderBMI(ctx));
+            get("/log", ctx -> bmiController.viewLog(ctx));
         };
     }
 }

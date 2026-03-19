@@ -7,9 +7,11 @@ import app.services.BmiServices;
 import app.validators.RequestValidation;
 import io.javalin.http.Context;
 import org.eclipse.jetty.webapp.OverrideDescriptor;
+import org.jetbrains.annotations.NotNull;
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class BmiController {
 
@@ -47,5 +49,28 @@ public class BmiController {
         catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void viewLog(Context ctx) {
+
+        // TODO: 1. Hent alle log rækker fra bmi tabellen og gem i arrayliste
+
+        List<Bmi> bmiList = null;
+        try {
+            bmiList = bmiMapper.getAllBmiEntries();
+        }
+        catch (SQLException e) {
+            ctx.attribute("error", "Der er sket en fejl - beklager");
+            ctx.render("log.html");
+        }
+
+        // TODO: 2. Gem arraylisten i ctx objektet
+
+        ctx.attribute("bmiList", bmiList);
+
+        // TODO: 3. Render log.html siden
+
+        ctx.render("log.html");
+
     }
 }
