@@ -41,8 +41,9 @@ body {
 }
 
 .link-button:hover {
-    background-color: darksalmon;
+    background-color: #336699;
     color: white;
+
 }
 
 .link-button a {
